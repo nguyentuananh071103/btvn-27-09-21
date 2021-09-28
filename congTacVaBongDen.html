@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="on()">Bật đèn</button>
+<button type="button" onclick="off()">Tắt đèn</button>
+<button type="button" onclick="connection()">Connection</button>
+</body>
+</html>
+<script>
+    var SwitchButton = function () {
+        this.status = false
+        this.lamp = null
+        this.connectToLamp = function () {
+            if (this.status ==false) {
+                alert("kết nối")
+            } else {
+                alert("không kết nối")
+            }
+        }
+        this.switchOn = function () {
+            this.status = true
+            alert("bật")
+        }
+        this.switchOff = function () {
+            this.status = false
+            alert("tắt")
+        }
+    }
+    var ElectricLamp = function () {
+        this.statuss = false
+        this.turnOns = function () {
+            this.statuss = true
+            alert("bóng đèn đã được bật")
+        }
+        this.turnOffs = function () {
+            this.statuss = false
+            alert("bóng đèn đã tắt")
+        }
+    }
+    var congtac = new SwitchButton()
+    var bongden = new ElectricLamp()
+    bongden(congtac)
+    function on() {
+        bongden.turnOns(congtac.switchOn())
+    }
+    function off() {
+        bongden.turnOffs(congtac.switchOff())
+    }
+    function connection() {
+        congtac.connectToLamp()
+    }
+</script>
+</body>
+</html>
